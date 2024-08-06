@@ -12,7 +12,6 @@ import java.util.List;
 public class CRUDImplCourse implements CRUDRepository<Course> {
     //Atributos de CRUDImplCourse
         //Constructores de CRUDImplCourse
-
     public CRUDImplCourse() {
     }
 
@@ -40,7 +39,7 @@ public class CRUDImplCourse implements CRUDRepository<Course> {
         Course course = null;
             //Obtener conexión
         try(Connection conn = dbConnection.getConnection();
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students where " + field +" = ?")){
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students where " + field + " = ?")){
             switch (field){
                 case "id" -> ps.setInt(1, Integer.parseInt(search));
                 case "name" -> ps.setString(1, search);

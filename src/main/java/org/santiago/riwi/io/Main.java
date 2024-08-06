@@ -1,6 +1,11 @@
 package org.santiago.riwi.io;
 
 import org.santiago.riwi.io.database.dbConnection;
+import org.santiago.riwi.io.models.Course;
+import org.santiago.riwi.io.models.Student;
+import org.santiago.riwi.io.repositories.CRUD.CRUDRepository;
+import org.santiago.riwi.io.repositories.implementations.CRUDImplCourse;
+import org.santiago.riwi.io.repositories.implementations.CRUDImplStudent;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,17 +14,16 @@ import java.sql.SQLException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        /*System.out.println("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }*/
+        try(Connection conn = dbConnection.getConnection()){    //Es estática, pero no Singleton
+            /*CRUDRepository<Student> StudentRepo = new CRUDImplStudent();
+                StudentRepo.toList().forEach(System.out::println);
+                System.out.println((StudentRepo.toRetrieve("email", "fdiben1@macromedia.com")));*/
 
-        try(Connection conn = dbConnection.getConnection()){    //Es estática, pero no SIngleton
+            CRUDRepository<Course> CourseRepo = new CRUDImplCourse();
+                CourseRepo.toList().forEach(System.out::println);
+                System.out.println((CourseRepo.toRetrieve("name", "Latin")));
+
             System.out.println("Nos conectamos, manito");
         } catch (SQLException e){
             e.printStackTrace();

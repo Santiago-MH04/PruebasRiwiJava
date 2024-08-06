@@ -35,9 +35,10 @@ public class Course {
         //Métodos de Course
     @Override
     public String toString() {
+
         return "Course -> [" +
                 "id: " + this.id +
                 ". Name: " + this.name +
-                " " + this.attendants + " attendants: " + ']';
+                " " + this.attendants + " attendants" + ']';
     }
 }
