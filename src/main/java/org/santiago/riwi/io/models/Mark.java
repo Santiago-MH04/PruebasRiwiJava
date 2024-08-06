@@ -4,7 +4,7 @@ public class Mark {
         //Atributos de Mark
     private Student student;
     private Course course;
-    private int mark;
+    private int grade;
 
         //Constructores de Mark
     public Mark() {}
@@ -16,9 +16,9 @@ public class Mark {
         public void setCourse(Course course) {
             this.course = course;
         }
-            public void setMark(int mark) {
-                if(mark >= 0 && mark <= 100){
-                    this.mark = mark;
+            public void setGrade(int grade) {
+                if(grade >= 0 && grade <= 100){
+                    this.grade = grade;
                 } else {
                     System.out.println("You cannot grade a student with such a mark at this school");
                 }
@@ -31,8 +31,8 @@ public class Mark {
         public Course getCourse() {
             return this.course;
         }
-            public int getMark() {
-                return this.mark;
+            public int getGrade() {
+                return this.grade;
             }
 
         //Métodos de Mark
@@ -42,7 +42,7 @@ public class Mark {
         return "Grade -> [" +
                 "Student: " + this.student.getName() + " " + this.student.getLastName() +
                 ". Course: " + this.course.getName() +
-                ". Mark: " + this.mark +
+                ". Mark: " + this.grade +
                 ']';
     }
 }
